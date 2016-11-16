@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_seleccionador"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/fondo"
+    android:orientation="vertical"
+    tools:context="es.iesnervion.fjruiz.mov_06_codefest_2016.Seleccionador">
+
+    <TextView android:id="@+id/Bienvenida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bienvenida"
+        android:textSize="20sp"/>
+    <Button android:id="@+id/reto1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reto 1"/>
+    <Button android:id="@+id/reto2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reto 2"/>
+    <Button android:id="@+id/reto3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reto 3"/>
+    <Button android:id="@+id/reto4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reto 4"/>
+    <Button android:id="@+id/reto5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reto 5"/>
+    <Button android:id="@+id/leerRetos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Leer retos"
+        android:onClick="leer"/>
+</LinearLayout>
