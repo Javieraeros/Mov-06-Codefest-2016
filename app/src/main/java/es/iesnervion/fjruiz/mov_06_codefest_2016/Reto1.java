@@ -2,7 +2,7 @@ package es.iesnervion.fjruiz.mov_06_codefest_2016;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
+/*
 public class Reto1 extends AppCompatActivity {
 
     @Override
@@ -10,4 +10,4 @@ public class Reto1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reto1);
     }
-}
+}*/

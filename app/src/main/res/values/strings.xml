@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Mov-06-Codefest-2016</string>
-    <string name="bienvenida">Bienvenido a la aplicación de retos de Everis Codefest 2016</string>
+    <string name="bienvenida">Retos Everis Codefest 2016</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

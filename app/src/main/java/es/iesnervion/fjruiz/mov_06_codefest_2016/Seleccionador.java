@@ -2,6 +2,8 @@ package es.iesnervion.fjruiz.mov_06_codefest_2016;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,14 +15,14 @@ import java.util.Vector;
 
 import es.iesnervion.fjruiz.mov_06_codefest_2016.reto.RobotFarmacia;
 
-public class Seleccionador extends AppCompatActivity {
+public class Seleccionador extends FragmentActivity {
 
     private TextView farmacia;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seleccionador);
-        Button reto=(Button) findViewById(R.id.leerRetos);
+
     }
 
     @Override
@@ -65,5 +67,5 @@ public class Seleccionador extends AppCompatActivity {
         startActivity(brows);
 
     }
-    
+
 }
