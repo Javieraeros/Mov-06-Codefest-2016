@@ -14,8 +14,9 @@ import android.widget.TextView;
 import java.util.Vector;
 
 import es.iesnervion.fjruiz.mov_06_codefest_2016.reto.RobotFarmacia;
+import layout.Maestro;
 
-public class Seleccionador extends FragmentActivity {
+public class Seleccionador extends FragmentActivity implements OnFragmentInteractionListener{
 
     private TextView farmacia;
     @Override
@@ -23,6 +24,21 @@ public class Seleccionador extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seleccionador);
 
+        if(findViewById(R.id.activity_seleccionador)!=null){
+            if(savedInstanceState==null){
+
+                // Create an instance of ExampleFragment
+                Maestro master = new Maestro();
+
+                // In case this activity was started with special instructions from an Intent,
+                // pass the Intent's extras to the fragment as arguments
+                master.setArguments(getIntent().getExtras());
+
+                // Add the fragment to the 'fragment_container' FrameLayout
+                getSupportFragmentManager().beginTransaction()
+                        .add(R.id.activity_seleccionador,master).commit();
+            }
+        }
     }
 
     @Override
@@ -61,11 +77,29 @@ public class Seleccionador extends FragmentActivity {
         //farmacia.setText(miRobot.getPosicionOptima()+" ");
     }
 
-    public void leer(View v){
-        Intent brows=new Intent(Intent.ACTION_VIEW,
-                Uri.parse("https://www.dropbox.com/s/s2wjs7av8a8j8hc/Retos%20codeFEST%2020161110%20v2.0.pdf?dl=0"));
-        startActivity(brows);
+    @Override
+    public void onFragmentInteraction(int id) {
+        switch (id){
+            case R.id.reto1:
 
+                break;
+            case R.id.reto2:
+
+                break;
+            case R.id.reto3:
+
+                break;
+            case R.id.reto4:
+
+                break;
+            case R.id.reto5:
+
+                break;
+            case R.id.leerRetos:
+                Intent browser=new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("https://www.dropbox.com/s/s2wjs7av8a8j8hc/Retos%20codeFEST%2020161110%20v2.0.pdf?dl=0"));
+                startActivity(browser);
+                break;
+        }
     }
-
 }

@@ -10,7 +10,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@drawable/fondo"
     android:orientation="vertical"
-    tools:context="es.iesnervion.fjruiz.mov_06_codefest_2016.Maestro">
+    tools:context="layout.Maestro">
 
     <TextView android:id="@+id/Bienvenida"
         android:layout_width="wrap_content"
@@ -47,6 +47,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Leer retos"
-        android:onClick="leer"/>
+        android:text="Leer retos"/>
 </LinearLayout>
