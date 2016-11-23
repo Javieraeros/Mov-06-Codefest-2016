@@ -13,11 +13,12 @@ import android.widget.TextView;
 
 import java.util.Vector;
 
+import es.iesnervion.fjruiz.mov_06_codefest_2016.reto.Reto1;
 import es.iesnervion.fjruiz.mov_06_codefest_2016.reto.RobotFarmacia;
 import layout.Maestro;
 
 public class Seleccionador extends FragmentActivity implements OnFragmentInteractionListener{
-
+    private boolean estoyEnTablet=false;
     private TextView farmacia;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,8 @@ public class Seleccionador extends FragmentActivity implements OnFragmentInterac
                 getSupportFragmentManager().beginTransaction()
                         .add(R.id.activity_seleccionador,master).commit();
             }
+        }else{
+            estoyEnTablet=true;
         }
     }
 
@@ -81,7 +84,20 @@ public class Seleccionador extends FragmentActivity implements OnFragmentInterac
     public void onFragmentInteraction(int id) {
         switch (id){
             case R.id.reto1:
+                if(estoyEnTablet){
+                    //ToDo
+                }else{
+                    Reto1 reto1Fragment= new Reto1();
+                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
+                    // Replace whatever is in the fragment_container view with this fragment,
+                    // and add the transaction to the back stack so the user can navigate back
+                    transaction.replace(R.id.activity_seleccionador, reto1Fragment);
+                    transaction.addToBackStack(null);
+
+                    // Commit the transaction
+                    transaction.commit();
+                }
                 break;
             case R.id.reto2:
 
