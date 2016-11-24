@@ -1,4 +1,4 @@
-package layout;
+package es.iesnervion.fjruiz.mov_06_codefest_2016;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -36,10 +36,15 @@ public class Maestro extends Fragment implements View.OnClickListener {
         reto1=(Button) v.findViewById(R.id.reto1);
         reto1.setOnClickListener(this);
         reto2=(Button) v.findViewById(R.id.reto2);
+        reto2.setOnClickListener(this);
         reto3=(Button) v.findViewById(R.id.reto3);
+        reto3.setOnClickListener(this);
         reto4=(Button) v.findViewById(R.id.reto4);
+        reto4.setOnClickListener(this);
         reto5=(Button) v.findViewById(R.id.reto5);
+        reto5.setOnClickListener(this);
         leerReto=(Button) v.findViewById(R.id.leerRetos);
+        leerReto.setOnClickListener(this);
         return v;
     }
 

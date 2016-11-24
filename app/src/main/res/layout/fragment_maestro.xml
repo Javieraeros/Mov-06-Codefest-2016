@@ -8,9 +8,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@drawable/fondo"
     android:orientation="vertical"
-    tools:context="layout.Maestro">
+    tools:context=".Maestro">
 
     <TextView android:id="@+id/Bienvenida"
         android:layout_width="wrap_content"

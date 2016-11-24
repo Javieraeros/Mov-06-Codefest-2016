@@ -13,7 +13,7 @@
     tools:context="es.iesnervion.fjruiz.mov_06_codefest_2016.Seleccionador">
     <fragment
         android:id="@+id/maestro"
-        android:name="layout.Maestro"
+        android:name="es.iesnervion.fjruiz.mov_06_codefest_2016.Maestro"
         android:layout_weight="1"
         android:layout_width="0dp"
         android:layout_height="match_parent"/>

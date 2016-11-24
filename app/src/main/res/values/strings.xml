@@ -3,4 +3,11 @@
     <string name="bienvenida">Retos Everis Codefest 2016</string>
 
     <string name="pidedatosreto1">Introduce las posiciones de los medicamentos separados por comas: </string>
+    <string name="explicacionreto2">Introduce el las días,horas, minutos y segundos en los diferentes cuadros</string>
+    <string name="dias">Días: </string>
+    <string name="horas">Horas: </string>
+    <string name="minutos">Minutos: </string>
+    <string name="segundos">Segundos: </string>
+    <string name="errorReto2">Error, has introducido un dato no válido</string>
+
 </resources>
