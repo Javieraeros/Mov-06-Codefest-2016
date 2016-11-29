@@ -1,8 +1,8 @@
 package es.iesnervion.fjruiz.mov_06_codefest_2016.reto2;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -67,15 +67,57 @@ public class Reto2 extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        if(dias.getText()==null || horas.getText()==null || minutos.getText()==null || segundos.getText()==null){
-            error.setText("Error, uno de los campos no se ha rellenado!");
-        } else if(Integer.parseInt(dias.getText().toString())<0){
-            //// TODO: 24/11/16
-            /*
-            Validar  los numeros de dias,horas minutos y segundos.
-            En caso de que no lo sean, marcar en rojo el campo del número incorrecto, o borrarlo.
-             */
+        int diasInt,horasInt,minutosInt,segundosInt;
+
+        resultado.setText("");
+
+        if(dias.getText().toString().equals("") || horas.getText().toString().equals("")  ||
+                minutos.getText().toString().equals("")  || segundos.getText().toString().equals("") ){
+            error.setVisibility(View.VISIBLE);
+            error.setText(R.string.errorReto2Vacio);
+
+        } else {
+            diasInt=Integer.parseInt(dias.getText().toString());
+            horasInt=Integer.parseInt(horas.getText().toString());
+            minutosInt=Integer.parseInt(minutos.getText().toString());
+            segundosInt=Integer.parseInt(segundos.getText().toString());
+            if (!validaFecha(diasInt, horasInt, minutosInt, segundosInt)) {
+                error.setVisibility(View.VISIBLE);
+                error.setText(R.string.errorReto2);
+            } else {
+                error.setVisibility(View.INVISIBLE);
+                Reloj miReloj = new Reloj();
+                resultado.setText(String.valueOf(miReloj.consumoTotal(diasInt, horasInt, minutosInt, segundosInt)));
+            }
         }
+    }
+
+    /**
+     * Método que comprueba si una fecha es válida
+     * Para hacerlo más legible, lo dividiré en varios ifs,lo que puede ralentizar el funcionamiento
+     * pero trátandose de uan app de prueba y aprendizaje, no nos fijaremos en esos detalles
+     * @param dias
+     * @param horas
+     * @param minutos
+     * @param segundos
+     * @return
+     */
+    public boolean validaFecha(int dias,int horas,int minutos,int segundos){
+        boolean resultado=true;
+        if(dias<0){
+            resultado=false;
+        } else
+        if(horas>23 || horas<0){
+            resultado=false;
+        } else
+        if(minutos<0 || minutos>60){
+            resultado=false;
+        } else
+        if(segundos<0 || segundos>60){
+            resultado=false;
+        }
+
+        return resultado;
     }
 
 }

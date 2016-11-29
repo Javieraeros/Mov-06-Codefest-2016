@@ -46,7 +46,7 @@ public class Reloj {
 
 		//Calculamos el consumo de días completos
 		if(dias!=0){
-			for(int k=0;k<24;k++){
+			/*for(int k=0;k<24;k++){
 				for(int j=0;j<60;j++){
 					for(int i=0;i<60;i++){
 						resultado=resultado+consumo(i/10)+consumo(i%10);
@@ -54,7 +54,9 @@ public class Reloj {
 						resultado=resultado+consumo(k/10)+consumo(k%10);
 					}
 				}
-			}
+			}*/
+			//Versión 2.0
+			resultado=2401920;
             resultado=resultado*dias;
 		}
 
