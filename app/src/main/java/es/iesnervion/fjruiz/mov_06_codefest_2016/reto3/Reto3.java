@@ -67,7 +67,7 @@ public class Reto3 extends Fragment implements View.OnClickListener{
             Factores f = new Factores(Integer.parseInt(numero.getText().toString()));
             resultado.setText(String.valueOf(f.getResultado()));
         }else{
-            
+
         }
     }
 }
