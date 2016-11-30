@@ -1,8 +1,9 @@
-package reto4;
+package es.iesnervion.fjruiz.mov_06_codefest_2016.reto4;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Vector;
+//ToDo
+/*
+Vamos
+ */
 
 public class Principal {
 

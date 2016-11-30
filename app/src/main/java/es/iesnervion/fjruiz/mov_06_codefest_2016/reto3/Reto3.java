@@ -1,7 +1,9 @@
 package es.iesnervion.fjruiz.mov_06_codefest_2016.reto3;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -14,7 +16,7 @@ import android.widget.TextView;
 import es.iesnervion.fjruiz.mov_06_codefest_2016.OnFragmentInteractionListener;
 import es.iesnervion.fjruiz.mov_06_codefest_2016.R;
 
-public class Reto3 extends Fragment implements View.OnClickListener{
+public class Reto3 extends Fragment implements View.OnClickListener,RecibeResultado{
 
     private OnFragmentInteractionListener mListener;
     private EditText numero;
@@ -63,11 +65,20 @@ public class Reto3 extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
+        resultado.setVisibility(View.VISIBLE);
         if(!numero.getText().toString().equals("")) {
-            Factores f = new Factores(Integer.parseInt(numero.getText().toString()));
-            resultado.setText(String.valueOf(f.getResultado()));
+            Factores f = new Factores(this);
+            f.execute(Integer.parseInt(numero.getText().toString()));
+            resultado.setTextColor(Color.BLACK);
         }else{
-
+            resultado.setTextColor(Color.RED);
+            resultado.setText(R.string.errrorReto3Vacio);
         }
+    }
+
+
+    @Override
+    public void onResultReceived(Integer resultadoNumero) {
+        resultado.setText(String.valueOf(resultadoNumero));
     }
 }

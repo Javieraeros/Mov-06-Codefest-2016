@@ -17,4 +17,5 @@
 
     <string name="explicacionReto3">Introduce el número para hallar los números enteros que se puedan obtener
     sumando 5 o multiplicando por 3</string>
+    <string name="errrorReto3Vacio">Error, campo vacío</string>
 </resources>
