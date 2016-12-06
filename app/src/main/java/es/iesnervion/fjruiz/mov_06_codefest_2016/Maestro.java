@@ -1,22 +1,25 @@
 package es.iesnervion.fjruiz.mov_06_codefest_2016;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListView;
 
 import es.iesnervion.fjruiz.mov_06_codefest_2016.*;
 
 import es.iesnervion.fjruiz.mov_06_codefest_2016.R;
 
 
-public class Maestro extends Fragment implements View.OnClickListener {
+public class Maestro extends ListFragment  {
 
     private OnFragmentInteractionListener mListener;
-    private Button reto1,reto2,reto3,reto4,reto5,leerReto;
 
     public Maestro() {
         // Required empty public constructor
@@ -26,28 +29,15 @@ public class Maestro extends Fragment implements View.OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View v=inflater.inflate(R.layout.fragment_maestro, container, false);
-        reto1=(Button) v.findViewById(R.id.reto1);
-        reto1.setOnClickListener(this);
-        reto2=(Button) v.findViewById(R.id.reto2);
-        reto2.setOnClickListener(this);
-        reto3=(Button) v.findViewById(R.id.reto3);
-        reto3.setOnClickListener(this);
-        reto4=(Button) v.findViewById(R.id.reto4);
-        reto4.setOnClickListener(this);
-        reto5=(Button) v.findViewById(R.id.reto5);
-        reto5.setOnClickListener(this);
-        leerReto=(Button) v.findViewById(R.id.leerRetos);
-        leerReto.setOnClickListener(this);
-        return v;
+        String[] cadenas={"Leer Retos",
+                "Reto 1",
+                "Reto 2",
+                "Reto 3",
+                "Reto 4",
+                "Reto 5"};
+        setListAdapter(new ArrayRetos<String>(getContext(), R.layout.row,R.id.TextoRetos,cadenas));
     }
-
 
     @Override
     public void onAttach(Context context) {
@@ -67,8 +57,9 @@ public class Maestro extends Fragment implements View.OnClickListener {
         mListener = null;
     }
 
+
     @Override
-    public void onClick(View v) {
-        mListener.onFragmentInteraction(v.getId());
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        mListener.onFragmentInteraction(position);
     }
 }

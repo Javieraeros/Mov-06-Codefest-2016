@@ -46,7 +46,12 @@ public class Seleccionador extends FragmentActivity implements OnFragmentInterac
     @Override
     public void onFragmentInteraction(int id) {
         switch (id){
-            case R.id.reto1:
+            case 0:
+                Intent browser=new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("https://www.dropbox.com/s/s2wjs7av8a8j8hc/Retos%20codeFEST%2020161110%20v2.0.pdf?dl=0"));
+                startActivity(browser);
+                break;
+            case 1:
                 if(estoyEnTablet){
                     //ToDo
                 }else{
@@ -62,7 +67,7 @@ public class Seleccionador extends FragmentActivity implements OnFragmentInterac
                     transaction.commit();
                 }
                 break;
-            case R.id.reto2:
+            case 2:
                 if(estoyEnTablet){
                     //ToDo
                 }else{
@@ -78,7 +83,7 @@ public class Seleccionador extends FragmentActivity implements OnFragmentInterac
                     transaction.commit();
                 }
                 break;
-            case R.id.reto3:
+            case 3:
                 if(estoyEnTablet){
                     //ToDo
                 }else{
@@ -94,17 +99,13 @@ public class Seleccionador extends FragmentActivity implements OnFragmentInterac
                     transaction.commit();
                 }
                 break;
-            case R.id.reto4:
+            case 4:
 
                 break;
-            case R.id.reto5:
+            case 5:
 
                 break;
-            case R.id.leerRetos:
-                Intent browser=new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("https://www.dropbox.com/s/s2wjs7av8a8j8hc/Retos%20codeFEST%2020161110%20v2.0.pdf?dl=0"));
-                startActivity(browser);
-                break;
+
         }
     }
 }
