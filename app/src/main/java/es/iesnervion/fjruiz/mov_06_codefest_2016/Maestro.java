@@ -3,9 +3,11 @@ package es.iesnervion.fjruiz.mov_06_codefest_2016;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 
 import es.iesnervion.fjruiz.mov_06_codefest_2016.*;
@@ -13,7 +15,7 @@ import es.iesnervion.fjruiz.mov_06_codefest_2016.*;
 import es.iesnervion.fjruiz.mov_06_codefest_2016.R;
 
 
-public class Maestro extends Fragment implements View.OnClickListener {
+public class Maestro extends ListFragment implements AdapterView.OnItemClickListener {
 
     private OnFragmentInteractionListener mListener;
     private Button reto1,reto2,reto3,reto4,reto5,leerReto;
@@ -33,18 +35,7 @@ public class Maestro extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v=inflater.inflate(R.layout.fragment_maestro, container, false);
-        reto1=(Button) v.findViewById(R.id.reto1);
-        reto1.setOnClickListener(this);
-        reto2=(Button) v.findViewById(R.id.reto2);
-        reto2.setOnClickListener(this);
-        reto3=(Button) v.findViewById(R.id.reto3);
-        reto3.setOnClickListener(this);
-        reto4=(Button) v.findViewById(R.id.reto4);
-        reto4.setOnClickListener(this);
-        reto5=(Button) v.findViewById(R.id.reto5);
-        reto5.setOnClickListener(this);
-        leerReto=(Button) v.findViewById(R.id.leerRetos);
-        leerReto.setOnClickListener(this);
+
         return v;
     }
 
@@ -67,8 +58,9 @@ public class Maestro extends Fragment implements View.OnClickListener {
         mListener = null;
     }
 
+
     @Override
-    public void onClick(View v) {
-        mListener.onFragmentInteraction(v.getId());
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        mListener.onFragmentInteraction(view.getId());
     }
 }
