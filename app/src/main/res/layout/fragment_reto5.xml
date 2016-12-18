@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="es.iesnervion.fjruiz.mov_06_codefest_2016.reto4.Reto4">
+    tools:context="es.iesnervion.fjruiz.mov_06_codefest_2016.reto5.Reto5">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -16,20 +16,20 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/lblPeso"
+                android:id="@+id/lblCiudadIni"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="24sp"
-                android:text="@string/peso"
+                android:text="@string/origen"
                 android:textColor="#000000"
                 android:textSize="20sp"/>
 
             <TextView
-                android:id="@+id/lblPrecio"
+                android:id="@+id/lblCiudadFin"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="24sp"
-                android:text="@string/precio"
+                android:text="@string/destino"
                 android:textColor="#000000"
                 android:textSize="20sp"/>
 
@@ -38,14 +38,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
-                android:id="@+id/listaPeso"
+                android:id="@+id/listaIni"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
                 android:textColor="#000000"/>
             <TextView
-                android:id="@+id/listaPrecio"
+                android:id="@+id/listaFin"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
@@ -58,21 +58,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <EditText
-                android:id="@+id/txtPeso"
-                android:inputType="numberDecimal"
+                android:id="@+id/txtIni"
+                android:inputType="number"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:textSize="20sp" />
             <EditText
-                android:id="@+id/txtPrecio"
-                android:inputType="numberDecimal"
+                android:id="@+id/txtFin"
+                android:inputType="number"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:textSize="20sp"/>
             <Button
-                android:id="@+id/añadir"
+                android:id="@+id/añadirCiudad"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Añadir"/>
@@ -84,37 +84,37 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
-                android:id="@+id/resultadoPeso"
+                android:id="@+id/resultadoCantidad"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="24sp"
+                android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:textColor="#000000" />
             <TextView
-                android:id="@+id/resultadoPrecio"
+                android:id="@+id/resultadoCiudades"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="24sp"
+                android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:textColor="#000000"/>
         </LinearLayout>
-            <LinearLayout android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <Button
-                    android:id="@+id/borrarUltimo"
-                    android:layout_width="0sp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@string/borrar" />
-                <Button
-                    android:id="@+id/calcularMochila"
-                    android:layout_width="0sp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="@string/calcular"/>
-            </LinearLayout>
+        <LinearLayout android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/borrarCiudad"
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/borrar" />
+            <Button
+                android:id="@+id/calcularCiudades"
+                android:layout_width="0sp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/calcular"/>
         </LinearLayout>
+    </LinearLayout>
 </ScrollView>

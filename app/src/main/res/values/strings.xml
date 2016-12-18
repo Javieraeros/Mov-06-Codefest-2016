@@ -19,6 +19,13 @@
     sumando 5 o multiplicando por 3</string>
     <string name="errrorReto3Vacio">Error, campo vacío</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="peso">Peso: </string>
+    <string name="precio">Precio: </string>
+    <string name="pesoParametro">Peso: %1$f</string>
+    <string name="precioParametro">Precio: %1$f</string>
+    <string name="borrar">Borrar Ultimo</string>
+
+    <string name="origen">Ciudad de Origen</string>
+    <string name="destino">Ciudad de Destino</string>
+    <string name="almacenesParametro">CantidadAlmacenes: %1$d</string>
 </resources>
