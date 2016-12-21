@@ -10,6 +10,8 @@ import android.widget.TextView;
 import es.iesnervion.fjruiz.mov_06_codefest_2016.reto.Reto1;
 import es.iesnervion.fjruiz.mov_06_codefest_2016.reto2.Reto2;
 import es.iesnervion.fjruiz.mov_06_codefest_2016.reto3.Reto3;
+import es.iesnervion.fjruiz.mov_06_codefest_2016.reto4.Reto4;
+import es.iesnervion.fjruiz.mov_06_codefest_2016.reto5.Reto5;
 
 public class Seleccionador extends FragmentActivity implements OnFragmentInteractionListener{
     private boolean estoyEnTablet=false;
@@ -100,10 +102,36 @@ public class Seleccionador extends FragmentActivity implements OnFragmentInterac
                 }
                 break;
             case 4:
+                if(estoyEnTablet){
+                    //ToDo
+                }else {
+                    Reto4 reto4Fragment = new Reto4();
+                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
+                    // Replace whatever is in the fragment_container view with this fragment,
+                    // and add the transaction to the back stack so the user can navigate back
+                    transaction.replace(R.id.activity_seleccionador, reto4Fragment);
+                    transaction.addToBackStack(null);
+
+                    // Commit the transaction
+                    transaction.commit();
+                }
                 break;
             case 5:
+                if(estoyEnTablet){
+                    //ToDo
+                }else {
+                    Reto5 reto5Fragment = new Reto5();
+                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
+                    // Replace whatever is in the fragment_container view with this fragment,
+                    // and add the transaction to the back stack so the user can navigate back
+                    transaction.replace(R.id.activity_seleccionador, reto5Fragment);
+                    transaction.addToBackStack(null);
+
+                    // Commit the transaction
+                    transaction.commit();
+                }
                 break;
 
         }
