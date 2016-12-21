@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.Vector;
+
 import es.iesnervion.fjruiz.mov_06_codefest_2016.OnFragmentInteractionListener;
 import es.iesnervion.fjruiz.mov_06_codefest_2016.R;
 
@@ -21,7 +23,9 @@ public class Reto3 extends Fragment implements View.OnClickListener,RecibeResult
     private OnFragmentInteractionListener mListener;
     private EditText numero;
     private TextView resultado;
-    private Button calcular;
+    private Button calcular,calcular2;
+
+    private int contador,resultadoN;
 
     public Reto3() {
         // Required empty public constructor
@@ -42,6 +46,8 @@ public class Reto3 extends Fragment implements View.OnClickListener,RecibeResult
 
         calcular=(Button) v.findViewById(R.id.botonReto3);
         calcular.setOnClickListener(this);
+        calcular2=(Button) v.findViewById(R.id.botonReto3Hilos);
+        calcular2.setOnClickListener(this);
         return v;
     }
 
@@ -66,19 +72,49 @@ public class Reto3 extends Fragment implements View.OnClickListener,RecibeResult
     @Override
     public void onClick(View v) {
         resultado.setVisibility(View.VISIBLE);
-        if(!numero.getText().toString().equals("")) {
-            Factores f = new Factores(this);
-            f.execute(Integer.parseInt(numero.getText().toString()));
-            resultado.setTextColor(Color.BLACK);
+        if(v.getId()==R.id.botonReto3) {
+            if (!numero.getText().toString().equals("")) {
+                Factores f = new Factores(this);
+                f.execute(Integer.parseInt(numero.getText().toString()));
+                resultado.setTextColor(Color.BLACK);
+            } else {
+                resultado.setTextColor(Color.RED);
+                resultado.setText(R.string.errrorReto3Vacio);
+            }
         }else{
-            resultado.setTextColor(Color.RED);
-            resultado.setText(R.string.errrorReto3Vacio);
+            if (!numero.getText().toString().equals("")) {
+
+                int miNumero=Integer.parseInt(numero.getText().toString());
+                Vector<Integer> divisor=new Vector<>(3,0);
+                divisor.add(miNumero*7/8);
+                divisor.add(miNumero*6/8);
+                divisor.add(miNumero*4/8);
+
+                FactoresHilos f1 = new FactoresHilos(this);
+                FactoresHilos f2 = new FactoresHilos(this);
+                FactoresHilos f3 = new FactoresHilos(this);
+                FactoresHilos f4 = new FactoresHilos(this);
+                f1.execute(miNumero,divisor.elementAt(0));
+                f2.execute(divisor.elementAt(0),divisor.elementAt(1));
+                f3.execute(divisor.elementAt(1),divisor.elementAt(2));
+                f4.execute(divisor.elementAt(2),0);
+                resultado.setTextColor(Color.BLACK);
+            } else {
+                resultado.setTextColor(Color.RED);
+                resultado.setText(R.string.errrorReto3Vacio);
+            }
         }
     }
 
 
     @Override
     public void onResultReceived(Integer resultadoNumero) {
-        resultado.setText(String.valueOf(resultadoNumero));
+        resultadoN+=resultadoNumero;
+        contador++;
+        //if(contador==4){
+            resultado.setText(String.valueOf(resultadoN));
+            contador=0;
+            resultadoN=0;
+        //}
     }
 }
