@@ -22,7 +22,7 @@ public class Reto3 extends Fragment implements View.OnClickListener,RecibeResult
 
     private OnFragmentInteractionListener mListener;
     private EditText numero;
-    private TextView resultado;
+    private TextView resultado,resultado2,resultado3,resultado4;
     private Button calcular,calcular2;
 
     private int contador,resultadoN;
@@ -43,6 +43,9 @@ public class Reto3 extends Fragment implements View.OnClickListener,RecibeResult
         View v=inflater.inflate(R.layout.fragment_reto3,container,false);
         numero=(EditText) v.findViewById(R.id.numeroReto3);
         resultado=(TextView) v.findViewById(R.id.ResultadoReto3);
+        resultado2=(TextView) v.findViewById(R.id.ResultadoReto32);
+        resultado3=(TextView) v.findViewById(R.id.ResultadoReto33);
+        resultado4=(TextView) v.findViewById(R.id.ResultadoReto34);
 
         calcular=(Button) v.findViewById(R.id.botonReto3);
         calcular.setOnClickListener(this);
@@ -72,6 +75,9 @@ public class Reto3 extends Fragment implements View.OnClickListener,RecibeResult
     @Override
     public void onClick(View v) {
         resultado.setVisibility(View.VISIBLE);
+        resultado2.setVisibility(View.VISIBLE);
+        resultado3.setVisibility(View.VISIBLE);
+        resultado4.setVisibility(View.VISIBLE);
         if(v.getId()==R.id.botonReto3) {
             if (!numero.getText().toString().equals("")) {
                 Factores f = new Factores(this);
@@ -85,19 +91,21 @@ public class Reto3 extends Fragment implements View.OnClickListener,RecibeResult
             if (!numero.getText().toString().equals("")) {
 
                 int miNumero=Integer.parseInt(numero.getText().toString());
-                Vector<Integer> divisor=new Vector<>(3,0);
-                divisor.add(miNumero*7/8);
-                divisor.add(miNumero*6/8);
-                divisor.add(miNumero*4/8);
+                Vector<Integer> divisor=new Vector<>(5,0);
+                divisor.add(miNumero);
+                divisor.add(miNumero*94/100);
+                divisor.add(miNumero*86/100);
+                divisor.add(miNumero*76/100);
+                divisor.add(0);
 
                 FactoresHilos f1 = new FactoresHilos(this);
                 FactoresHilos f2 = new FactoresHilos(this);
                 FactoresHilos f3 = new FactoresHilos(this);
                 FactoresHilos f4 = new FactoresHilos(this);
-                f1.execute(miNumero,divisor.elementAt(0));
-                f2.execute(divisor.elementAt(0),divisor.elementAt(1));
-                f3.execute(divisor.elementAt(1),divisor.elementAt(2));
-                f4.execute(divisor.elementAt(2),0);
+                f1.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,divisor.elementAt(0),divisor.elementAt(1));
+                f2.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,divisor.elementAt(1),divisor.elementAt(2));
+                f3.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,divisor.elementAt(2),divisor.elementAt(3));
+                f4.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,divisor.elementAt(3),divisor.elementAt(4));
                 resultado.setTextColor(Color.BLACK);
             } else {
                 resultado.setTextColor(Color.RED);
@@ -109,12 +117,28 @@ public class Reto3 extends Fragment implements View.OnClickListener,RecibeResult
 
     @Override
     public void onResultReceived(Integer resultadoNumero) {
-        resultadoN+=resultadoNumero;
         contador++;
-        //if(contador==4){
-            resultado.setText(String.valueOf(resultadoN));
-            contador=0;
-            resultadoN=0;
-        //}
+        resultadoN=resultadoNumero;
+        switch (contador){
+            case 1:
+                resultado.setText(String.valueOf(resultadoN));
+                resultadoN=0;
+                break;
+            case 2:
+                resultado2.setText(String.valueOf(resultadoN));
+                resultadoN=0;
+                break;
+
+            case 3:
+                resultado3.setText(String.valueOf(resultadoN));
+                resultadoN=0;
+                break;
+
+            case 4:
+                resultado4.setText(String.valueOf(resultadoN));
+                resultadoN=0;
+                contador=0;
+                break;
+        }
     }
 }
