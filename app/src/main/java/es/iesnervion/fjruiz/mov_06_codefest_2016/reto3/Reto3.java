@@ -26,7 +26,7 @@ public class Reto3 extends Fragment implements View.OnClickListener,RecibeResult
     private Button calcular,calcular2;
 
     private int contador,resultadoN;
-
+    private boolean muchoshilos;
     public Reto3() {
         // Required empty public constructor
     }
@@ -83,6 +83,7 @@ public class Reto3 extends Fragment implements View.OnClickListener,RecibeResult
                 Factores f = new Factores(this);
                 f.execute(Integer.parseInt(numero.getText().toString()));
                 resultado.setTextColor(Color.BLACK);
+                muchoshilos=false;
             } else {
                 resultado.setTextColor(Color.RED);
                 resultado.setText(R.string.errrorReto3Vacio);
@@ -94,9 +95,10 @@ public class Reto3 extends Fragment implements View.OnClickListener,RecibeResult
                 Vector<Integer> divisor=new Vector<>(5,0);
                 divisor.add(miNumero);
                 divisor.add(miNumero*94/100);
-                divisor.add(miNumero*86/100);
-                divisor.add(miNumero*76/100);
+                divisor.add(miNumero*87/100);
+                divisor.add(miNumero*74/100);
                 divisor.add(0);
+                muchoshilos=true;
 
                 FactoresHilos f1 = new FactoresHilos(this);
                 FactoresHilos f2 = new FactoresHilos(this);
@@ -119,26 +121,31 @@ public class Reto3 extends Fragment implements View.OnClickListener,RecibeResult
     public void onResultReceived(Integer resultadoNumero) {
         contador++;
         resultadoN=resultadoNumero;
-        switch (contador){
-            case 1:
-                resultado.setText(String.valueOf(resultadoN));
-                resultadoN=0;
-                break;
-            case 2:
-                resultado2.setText(String.valueOf(resultadoN));
-                resultadoN=0;
-                break;
+        if(muchoshilos){
+            switch (contador){
+                case 1:
+                    resultado.setText(String.valueOf(resultadoN));
+                    resultadoN=0;
+                    break;
+                case 2:
+                    resultado2.setText(String.valueOf(resultadoN));
+                    resultadoN=0;
+                    break;
 
-            case 3:
-                resultado3.setText(String.valueOf(resultadoN));
-                resultadoN=0;
-                break;
+                case 3:
+                    resultado3.setText(String.valueOf(resultadoN));
+                    resultadoN=0;
+                    break;
 
-            case 4:
-                resultado4.setText(String.valueOf(resultadoN));
-                resultadoN=0;
-                contador=0;
-                break;
+                case 4:
+                    resultado4.setText(String.valueOf(resultadoN));
+                    resultadoN=0;
+                    contador=0;
+                    break;
+            }
+        }else{
+            resultado.setText(String.valueOf(resultadoN));
+            contador=0;
         }
     }
 }
